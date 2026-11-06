@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f766e" />
+    <title>Letterlock</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230f766e'/><text x='16' y='23' font-size='20' font-family='sans-serif' font-weight='700' fill='white' text-anchor='middle'>L</text></svg>" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="top">
+        <button class="icon" id="help-btn" aria-label="How to play"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></button>
+        <h1>Letterlock</h1>
+        <div class="top-right">
+          <button class="icon" id="theme-btn" aria-label="Toggle dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+          <button class="icon" id="stats-btn" aria-label="Statistics"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg></button>
+        </div>
+      </header>
+      <nav class="controls">
+        <div class="seg" id="mode-seg" role="radiogroup" aria-label="Mode">
+          <button data-mode="daily" role="radio">Daily</button>
+          <button data-mode="free" role="radio">Free play</button>
+        </div>
+        <div class="seg" id="len-seg" role="radiogroup" aria-label="Word length">
+          <button data-len="5" role="radio">5</button>
+          <button data-len="6" role="radio">6</button>
+          <button data-len="7" role="radio">7</button>
+          <button data-len="8" role="radio">8</button>
+        </div>
+      </nav>
+      <main>
+        <div id="board" aria-live="polite"></div>
+      </main>
+      <div id="keyboard" aria-label="Keyboard"></div>
+      <div id="toasts" aria-live="assertive"></div>
+    </div>
+
+    <dialog id="help">
+      <h2>How to play</h2>
+      <p>Guess the hidden English word. Pick a length from 5 to 8 letters; you get one more guess than the word has letters.</p>
+      <p>After each guess the tiles change colour:</p>
+      <ul class="legend">
+        <li><span class="tile correct">A</span> right letter, right spot</li>
+        <li><span class="tile present">B</span> in the word, wrong spot</li>
+        <li><span class="tile absent">C</span> not in the word</li>
+      </ul>
+      <p><b>Daily</b> gives everyone the same word each day for each length. <b>Free play</b> gives a new random word whenever you like.</p>
+      <form method="dialog"><button class="primary">Got it</button></form>
+    </dialog>
+
+    <dialog id="stats">
+      <h2 id="stats-title">Statistics</h2>
+      <div class="stat-row" id="stat-row"></div>
+      <h3>Guess distribution</h3>
+      <div id="dist"></div>
+      <div class="stats-actions" id="stats-actions"></div>
+      <form method="dialog"><button class="ghost">Close</button></form>
+    </dialog>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
