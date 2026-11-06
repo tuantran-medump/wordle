@@ -1,0 +1,29 @@
+{
+  "name": "letterlock",
+  "version": "1.0.0",
+  "description": "An English word guessing game with 5 to 8 letter words.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuantran-medump/wordle.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tuantran-medump/wordle/issues"
+  },
+  "homepage": "https://github.com/tuantran-medump/wordle#readme",
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.8"
+  },
+  "private": true,
+  "type": "module"
+}
